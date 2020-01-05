@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>01-jQuery对象进行方法扩展</title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    /*
+    $.extend(Object)
+        增强JQuery对象自身的功能     $   就是增强$的功能
+            $ 是JQuery的核心对象，$中的方法是全局方法
+     */
+
+    // 使用JQuery插件，添加两个全局方法，max()求两个数中的最大值    min()求两个数中的最小值
+    $.extend({
+        // 添加max方法
+        max:function (a, b) {
+            // 返回两个数中的最大值
+            return a >= b ? a : b;
+        },
+
+        // 添加min方法
+        min:function (a, b) {
+            // 返回两个数中的最小值
+            return a <= b ? a : b;
+        }
+
+    });
+
+    // 调用全局方法
+    var max = $.max(4, 3);
+    alert(max); // 4
+
+    var min = $.min(4, 3);
+    alert(min); // 3
+    </script>
+</head>
+<body>
+
+</body>
+</html>
+

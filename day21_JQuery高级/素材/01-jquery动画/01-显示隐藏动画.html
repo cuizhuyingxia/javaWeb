@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>显示隐藏动画</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        显示隐藏动画
+
+            1. 默认显示和隐藏方式
+
+                显示
+                    show([[speed], [easing], [fn]])
+                        speed       动画执行的速度，不是必填项。
+                                        有三个预定义值：slow慢  normal一般  fast快
+                                            也可以传入毫秒值，表示执行动画需要的时间，如5000，表示执行动画需要5秒的时间
+
+                        easing      动画切换的效果，不是必填项。
+                                            默认值为swing，还有一个预定义值为linear
+                                                swing   动画执行速度为：开始慢、中间快、最后慢。
+                                                linear  动画指定速度为：匀速
+
+                        fn          动画执行完成后，执行一个函数，不是必填项。
+
+                隐藏
+                    hide([speed, [easing], [fn]])
+
+                显示和隐藏
+                    toggle([speed, [easing], [fn]])
+
+
+            2. 滑动显示和隐藏方式
+
+                显示
+                    slideDown([speed, [easing], [fn]])
+
+                隐藏
+                    slideUp([speed, [easing], [fn]])
+
+                显示和隐藏
+                    slideToggle([speed, [easing], [fn]])
+
+
+            3. 深入淡出显示和隐藏方式
+
+                显示
+                    fadeIn([speed, [easing], [fn]])
+
+                隐藏
+                    fadeOut([speed, [easing], [fn]])
+
+                显示和隐藏
+                    fadeToggle([speed, [easing], [fn]])
+
+         */
+
+
+        // 1. 默认显示和隐藏方式
+        function showFn() {
+            $("#showDiv").show(5000, "linear", function () {
+                alert("显示了");
+            })
+        }
+
+        function hideFn() {
+            $("#showDiv").hide(5000, "swing", function () {
+                alert("隐藏了");
+            })
+        }
+
+        function toggleFn() {
+            $("#showDiv").toggle(5000, "linear", function () {
+                alert("切换显示和隐藏");
+            })
+        }
+
+
+        /*// 滑动显示和隐藏方式
+        function showFn() {
+            $("#showDiv").slideDown("slow");
+        }
+
+        function hideFn() {
+            $("#showDiv").slideUp("slow");
+        }
+
+        function toggleFn() {
+            $("#showDiv").slideToggle("slow");
+        }*/
+
+        /*// 3. 深入淡出显示和隐藏方式
+        function showFn() {
+            $("#showDiv").fadeIn("slow");
+        }
+
+        function hideFn() {
+            $("#showDiv").fadeOut("slow");
+        }
+
+        function toggleFn() {
+            $("#showDiv").fadeToggle("slow");
+        }*/
+
+    </script>
+</head>
+<body>
+<input type="button" value="点击按钮显示div" onclick="showFn()">
+<input type="button" value="点击按钮隐藏div" onclick="hideFn()">
+<input type="button" value="点击按钮切换div显示和隐藏" onclick="toggleFn()">
+
+<div id="showDiv" style="width:300px;height:300px;background:pink">
+    div显示和隐藏
+</div>
+</body>
+</html>

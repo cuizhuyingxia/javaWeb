@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*属性选择器：选择元素的属性值
+        语法：元素名称[属性名="属性值"]{}*/
+        input[type="text"] {
+            border: 10px solid;
+        }
+
+        /*伪类选择器：选择元素的状态
+        语法：元素:状态{}*/
+        /*超链接初始状态为绿色*/
+        a:link {
+            color: green;
+        }
+
+        /*鼠标悬浮在超链接上为黄色*/
+        a:hover {
+            color: yellow;
+        }
+
+        /*鼠标点击超链接不松手为篮色*/
+        a:active {
+            color: blue;
+        }
+
+        /*鼠标选中了超链接为红色*/
+        a:visited {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+用户名：<input type="text" name="用户名">
+密码：<input type="password" name="password">
+<a href="#">谷歌</a>
+</body>
+</html>

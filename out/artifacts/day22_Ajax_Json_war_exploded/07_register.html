@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        // 页面加载完成后
+        $(function () {
+            // 为用户名输入框绑定离焦事件
+            $("#username").blur(function () {
+                // 获取用户输入的用户名
+                var username = $(this).val();
+                // 发送ajax请求
+                $.get("findUserServlet", {"username":username}, function (data) {
+                    /*
+                    期望服务器响应回的数据格式为：
+                                                {"userExsit":true, "msg":"用户名已存在}
+                                                {"userExsit":false, "msg":"用户名可用}
+                     */
+                    // 获取提示框
+                    var msg_Username = $("#msg_username");
+                    // 判断userExsit键的值是否为true
+                    if (data.userExsit) {
+                        // 用户名存在
+                        msg_Username.css("backgroundColor", "red");
+                        msg_Username.html(data.msg);
+                    } else {
+                        // 用户名不存在
+                        msg_Username.css("backgroundColor", "green");
+                        msg_Username.html(data.msg);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <form>
+        <input id="username" type="text" name="username" placeholder="请输入用户名">
+        <span id="msg_username"></span><br>
+        <input type="password" name="password" placeholder="请输入密码"><br>
+        <input type="submit" value="注册"><br>
+    </form>
+</body>
+</html>

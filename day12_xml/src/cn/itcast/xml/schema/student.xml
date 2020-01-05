@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+	引入schema约束文档格式
+	1.填写xml文档的根元素
+	2.引入xsi前缀.  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	3.引入xsd文件命名空间.  xsi:schemaLocation="http://www.itcast.cn/xml  student.xsd"
+	4.为每一个xsd约束声明一个前缀,作为标识  xmlns="http://www.itcast.cn/xml" 
+ -->
+
+<!--引入schema约束文档-->
+<a:students   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.itcast.cn/xml  student.xsd" xmlns:a="http://www.itcast.cn/xml">
+<!--根元素     引入固定的命名空间，前缀为xsi                           schema约束文档路径   起一个命名空间              约束文档路径   为命名空间起一个前缀，格式为xmlns:前缀名-->
+
+	<a:student number="heima_0001">
+		<a:name>tom</a:name>
+		<a:age>18</a:age>
+		<a:sex>male</a:sex>
+	</a:student>
+
+	<a:student number="heima_0002">
+		<a:name>coco</a:name>
+		<a:age>18</a:age>
+		<a:sex>female</a:sex>
+	</a:student>
+
+</a:students>
+
+
+<!--如果当前只引用了一个约束文档，则前缀名也可以不写，在使用元素时也就不用加前缀了-->
+<!--
+<students   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.itcast.cn/xml  student.xsd" xmlns="http://www.itcast.cn/xml">
+&lt;!&ndash;根元素     引入固定的命名空间，前缀为xsi                           schema约束文档路径   起一个命名空间              约束文档路径   为命名空间起一个前缀，格式为xmlns:前缀名&ndash;&gt;
+
+	<student number="heima_0001">
+		<name>tom</name>
+		<age>18</age>
+		<sex>male</sex>
+	</student>
+
+	<student number="heima_0002">
+		<name>coco</name>
+		<age>18</age>
+		<sex>female</sex>
+	</student>
+
+</students>-->

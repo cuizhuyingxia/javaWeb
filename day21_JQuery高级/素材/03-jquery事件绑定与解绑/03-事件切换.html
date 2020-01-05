@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>事件切换</title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <!--因为事件中的toggle方法，在1.9版本后被弃用了，所以如果想使用toggle方法，需要导入插件jquery-migrate-1.0.0.js恢复此功能-->
+    <!--注意：只是事件中的toggle方法被弃用了，动画中的toggle方法并没有被弃用-->
+    <script src="../js/jquery-migrate-1.0.0.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    /*
+    事件切换
+
+        jq对象.toggle(fn1,fn2,...)
+        
+            jq对象.toggle(fn1,fn2)
+                第一次单击jq对象对应的组件后，会执行fn1函数，第二次单击，会执行fn2函数,
+                    因为没有定义第三个函数，所以第三次单击，又会执行fn1函数，
+                        第四次单击，又会执行fn2函数，如此循环下去
+                        
+            jq对象.toggle(fn1,fn2,fn3)
+                第一次单击jq对象对应的组件后，会执行fn1函数，第二次单击，会执行fn2函数，第三次单击，会执行fn3函数，
+                    因为没有定义第四个函数，所以第四次单击，又会执行fn1函数，第五次单击，又会执行fn2函数，
+                        第六次单击，又会执行fn3函数，如此循环下去
+                
+     */
+
+    $(function () {
+        // 需求：单击按钮，div元素变为绿色，再次单击，div元素变为粉色，如此循环下去
+        $("#btn").toggle(function () {
+            $("#myDiv").css("backgroundColor", "green");
+        }, function () {
+            $("#myDiv").css("backgroundColor", "pink");
+        });
+    });
+
+    </script>
+</head>
+<body>
+
+    <input id="btn" type="button" value="事件切换">
+    <div id="myDiv" style="width:300px;height:300px;background:pink">
+        点击按钮变成绿色，再次点击红色
+    </div>
+</body>
+</html>
+

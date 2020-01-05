@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例2_轮播图</title>
+</head>
+<body>
+    <!--1. 显示页面-->
+    <img id="img" src="./img/banner_1.jpg" width="100%">
+
+
+<script>
+    /*
+    轮播图
+
+    分析：
+        1. 显示页面
+        2. 定义一个方法，修改图片对象的src属性
+        3. 定义一个定时器，每隔3秒调用方法一次
+     */
+
+
+    // 2. 定义一个方法，修改图片对象的src属性
+    var number = 1;
+    function fun() {
+        number ++;
+        // 判断number是否大于3，如果大于3，则将number置为1（切换到第一张图片）
+        if (number > 3) {
+            number = 1;
+        }
+        var img = document.getElementById("img");
+        img.src = "./img/banner_"+number+".jpg";    // 使用变量来切换图片
+    }
+
+
+    // 3. 定义一个定时器，每隔3秒调用方法一次
+    setInterval(fun, 3000);
+
+</script>
+</body>
+</html>

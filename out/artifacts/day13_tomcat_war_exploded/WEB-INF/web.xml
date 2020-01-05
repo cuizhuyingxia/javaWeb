@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <!--配置servlet-->
+    <servlet>
+        <servlet-name>demo1</servlet-name>  <!--为ServletDemo1类起一个名字-->
+        <servlet-class>cn.itcast.web.servlet.ServletDemo1</servlet-class>   <!--全类名-->
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>demo1</servlet-name>  <!--配置映射关系-->
+        <url-pattern>/demo1</url-pattern>   <!--配置ServletDemo1类对应的url资源路径，然后就可以通过这个路径访问到ServletDemo1类了-->
+    </servlet-mapping>
+
+
+    <!--配置servlet-->
+    <servlet>
+        <servlet-name>demo2</servlet-name>
+        <servlet-class>cn.itcast.web.servlet.ServletDemo2</servlet-class>
+        <!--配置Servlet的创建时机（默认是第一次被访问时，创建）-->
+        <load-on-startup>-5</load-on-startup> <!--若值为负数，则第一次被访问时创建，默认为-1-->
+        <!--<load-on-startup>5</load-on-startup>--> <!--若值为正数，则在服务器启动时创建-->
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>demo2</servlet-name>
+        <url-pattern>/demo2</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+
+    <!--<filter>
+        <filter-name>demo1</filter-name>
+        <filter-class>cn.itcast.web.filter.FilterDemo5</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>demo1</filter-name>
+        &lt;!&ndash;配置拦截路径&ndash;&gt;
+        <url-pattern>/index.jsp</url-pattern>   &lt;!&ndash;访问所有的资源前，都会先执行demo1对应的过滤器&ndash;&gt;
+        &lt;!&ndash;配置拦截方式&ndash;&gt;
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>-->
+
+    <!--
+    过滤器的先后顺序:
+
+    谁的<filter-mapping>定义在前面，谁先执行
+    -->
+    <!--<filter>
+        <filter-name>demo2</filter-name>
+        <filter-class>cn.itcast.web.filter.FilterDemo7</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>demo2</filter-name>
+        &lt;!&ndash;配置拦截路径&ndash;&gt;
+        <url-pattern>/index.jsp</url-pattern>
+        &lt;!&ndash;配置拦截方式&ndash;&gt;
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>demo1</filter-name>
+        <filter-class>cn.itcast.web.filter.FilterDemo6</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>demo1</filter-name>
+        &lt;!&ndash;配置拦截路径&ndash;&gt;
+        <url-pattern>/index.jsp</url-pattern>
+        &lt;!&ndash;配置拦截方式&ndash;&gt;
+        <dispatcher>REQUEST</dispatcher>
+        <dispatcher>FORWARD</dispatcher>
+    </filter-mapping>-->
+
+
+    <!--配置监听器-->
+    <!--<listener>
+        <listener-class>cn.itcast.web.listener.ServletContextLoadListener</listener-class>
+    </listener>-->
+
+    <!--指定初始化参数-->
+    <context-param>
+        <!--配置ServletContext被对象创建时，自动加载的文件-->
+        <param-name>contextConfigLocation</param-name>
+        <!--加载的文件在web目录下的访问路径-->
+        <param-value>/WEB-INF/classes/applicationContext.xml</param-value>
+    </context-param>
+</web-app>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>逻辑运算符</title>
+    <script>
+        /*
+        逻辑运算符：
+        && 与（短路）
+        || 或（短路）
+        ! 非
+         */
+
+
+        /*
+        &&
+        如果左边的值为true，那么返回右边的值，不管右边的值是真还是假
+        如果左边的值为false，那么直接返回false
+         */
+        document.write((3 > 2 && 4 > 3) + "<br>"); // true
+        document.write((3 > 2 && 4 > 4) + "<br>"); // false
+        document.write((3 > 4 && 4 > 3) + "<br>"); // false
+        document.write("<hr>");
+
+        /*
+        ||
+        如果左边的值为true，那么直接返回true
+        如果左边的值为false，那么直接返回右边的值，不管右边的值是真还是假
+         */
+        var c = 3;
+        var d = 4;
+        document.write((3 > 2 || 4 > 4) + "<br>"); // true
+        document.write((3 > 4 || 4 > 4) + "<br>"); // false
+        document.write((3 > 4 || 4 > 3) + "<br>"); // true
+        document.write("<hr>");
+
+        /*
+        !
+        真为假，假为真
+         */
+        document.write((!5) + "<br>");  // false
+        document.write((!0) + "<br>");  // true
+        document.write("<hr>");
+
+        /*
+        其它类型转boolean
+        */
+        // number转boolean：0或NaN为假，非0为真
+        document.write((!!0) + "<br>");  // false
+        document.write((!!NaN) + "<br>");    // false
+        document.write((!!3) + "<br>");  // true
+        document.write("<hr>");
+
+        // string转boolean：除了空字符串为false，其它都为true
+        document.write((!!"") + "<br>");    // false
+        document.write((!!"abc") + "<br>"); // true
+        document.write("<hr>");
+
+        // null转boolean：直接为false
+        document.write((!!(null)) + "<br>");    // false
+        document.write("<hr>");
+
+        // undefined转boolean：直接为false
+        document.write((!!undefined) + "<br>"); // false
+        document.write("<hr>");
+
+        // object转boolean：所有对象都为true
+        var date = new Date();
+        document.write((!!date) + "<br>");  // true
+        document.write("<hr>");
+
+        var test = "abc";
+        // 如果字符串不为null，并且长度大于0（防止空字符串）
+        if (test != null && test.length > 0) {
+            alert(123);
+        }
+        // 可以简写为
+        if (test) { // 因为如果字符串为null或着字符串为空字符串，那么都会转换为false
+            alert(111);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    /*
+    获取json数据
+
+        1. json对象.键名
+
+        2. json对象["键名"]
+
+        3. 使用for in 遍历获取json数据
+
+     */
+
+        var person = {"name":"coco", "age":18, "gender":true};
+        //alert(person.name);         // coco
+        //alert(person["age"]);       // 18
+
+        // 遍历获取json数据
+        for (var key in person) {
+            //alert(key +":"+ person[key]);   // 因为遍历出来的key是json对象的键，而键是字符串格式的，所以获取值时，不用再加双引号了
+            // name:coco
+            // age:18
+            // gender:true
+        }
+
+
+        var peoples = [
+            {"name":"coco", "age":18, "gender":true},
+            {"name":"tutu", "age":18, "gender":true},
+            {"name":"mumu", "age":18, "gender":true}
+        ];
+
+        // 遍历获取json数据
+        for (var i = 0; i < peoples.length; i ++) {
+            var people = peoples[i];            // 获取数组中的每个json对象
+            for (var key in people) {           // 遍历每个json对象
+                //alert(key +":"+ people[key]);   // 因为遍历出来的key是json对象的键，而键是字符串格式的，所以获取值时，不用再加双引号了
+                // name:coco
+                // age:18
+                // gender:true
+                // name:tutu
+                // age:18
+                // gender:true
+                // name:mumu
+                // age:18
+                // gender:true
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

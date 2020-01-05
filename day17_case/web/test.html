@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function () {
+            load("coco", null)
+        });
+        function load(name, hobby) {
+            $.get("oneServlet", {name:name, hobby:hobby}, function (data) {
+                                            // 参数为null
+            })
+        }
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

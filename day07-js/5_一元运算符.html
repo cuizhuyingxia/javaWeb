@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一元运算符</title>
+    <script>
+        /*
+        一元运算符：只有一个运算数的运算符
+        ++      自增
+        --      自减
+        +       正号
+        -       负号
+         */
+
+
+        // 先自增
+        var num1 = 3;
+        var num2 = ++ num1;
+        document.write(num1 + "<br>");  // 4
+        document.write(num2 + "<br>");  // 4
+
+
+        // 后自增
+        var num3 = 3;
+        var num4 = num3 ++;
+        document.write(num3 + "<br>");  // 4
+        document.write(num4 + "<br>");  // 3
+
+
+        /*
+        注意：在JS中，如果运算数不是运算符所需要的类型，那么JS引擎会自动将运算数转换为运算符所需要的类型
+        例如：
+        var a = + "123";
+        运算数"123"是字符串类型，而运算符则是number类型的运算符+（正号），所以JS引擎会自动将"123"转换为number类型
+        var b = - "456";
+        运算数"456"是字符串类型，而运算符则是number类型的运算符-（负号），所以JS引擎会自动将"456"转换为number类型
+        */
+
+
+        // string转number规则：按照字面值进行转换，如果字面值是数字，就转换为数字，反之，则转为NaN（即一个不是数字的数字类型）
+        var a = + "123";    // 字面值是数字
+        document.write(a + "---" + typeof(a) + "<br>"); // 123---number
+        var b = - "456";    // 字面值是数字
+        document.write(b + "---" + typeof(b) + "<br>"); // -456---number
+        var c = + "abc";    // 字面值不是数字
+        document.write(c + "---" + typeof(c) + "<br>"); // NaN---number
+        var d = + "123abc"; // 字面值不是数字
+        document.write(d + "---" + typeof(d) + "<br>"); // NaN---number
+
+
+        // boolean转number规则：true转为1  false转为0
+        var flag1 = + true;
+        var flag2 = + false;
+        document.write(flag1 + "---" + typeof(flag1) + "<br>"); // 1---number
+        document.write(flag2 + "---" + typeof(flag2) + "<br>"); // 0---number
+    </script>
+</head>
+<body>
+
+</body>
+</html>

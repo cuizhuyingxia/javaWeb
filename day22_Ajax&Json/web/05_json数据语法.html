@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+    /*
+    json基本规则
+
+        1. json对象使用{}包裹
+
+        2. json数据是由键值对构成的
+                值得取值类型有：
+                    数字（整数或浮点数）
+                    字符串
+                    逻辑值（true或false）
+                    数组（数组中可以嵌套json对象）
+                    对象
+                    null
+
+        3. 多个键值对之间由逗号分隔
+
+     */
+
+        // 1. 定义js对象
+        var person = {"name":"coco", "age":18, "gender":true};
+        //alert(person);
+
+
+        // 2. 在json对象的值中嵌套json对象
+        var persons  = {
+            "person":{"name":"coco", "age":18, "gender":true}
+        };
+        //alert(persons);
+
+
+        // 3. 在json对象的值中定义数组，并在数组中嵌套json对象
+        var peoples = {
+            "people":[
+                        {"name":"coco", "age":18, "gender":true},
+                        {"name":"tutu", "age":18, "gender":true},
+                        {"name":"mumu", "age":18, "gender":true}
+                    ]
+        };
+        //alert(peoples);
+
+
+        // 3. 在数组中嵌套json对象
+        var arr = [
+                    {"name":"coco", "age":18, "gender":true},
+                    {"name":"tutu", "age":18, "gender":true},
+                    {"name":"mumu", "age":18, "gender":true}
+                ];
+        //alert(arr);
+
+
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>

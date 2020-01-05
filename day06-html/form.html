@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单标签</title>
+</head>
+<body>
+<form>
+    <label for="username">用户名：</label><input type="text" name="username" placeholder="请输入用户名" id="username"><br>
+    <label for="password">密码：</label><input type="password" name="password" placeholder="请输入密码" id="password"><br>
+    <label for="gender">性别：</label><input type="radio" name="gender" value="male" id="gender"> 男
+        <input type="radio" name="gender" value="female" checked="checked"> 女<br>
+    爱好：<input type="checkbox" name="hobby" value="free" checked="checked"> 自由
+    <input type="checkbox" name="hobby" value="peace"> 和平
+    <input type="checkbox" name="hobby" value="happy"> 快乐<br>
+    文件：<input type="file" name="file"><br>
+    隐藏域：<input type="hidden" name="hidden" value="123"><br>
+    取色器：<input type="color" name="color"><br>
+    日期：<input type="date" name="date"><br>
+    时间：<input type="datetime-local" name="datetime-local"><br>
+    邮箱：<input type="email" name="email"><br>
+    年龄：<input type="number" name="age"><br>
+    <input type="button" name="普通按钮" value="普通按钮"><br>
+    <input type="image" name="imgsubmit" src="./image/logo.jpg"><br> <!-- 图片提交按钮 -->
+    省份：<select name="province">
+        <option value="">--请选择--</option>
+    <option value="1">北京</option>
+    <option value="2">上海</option>
+    <option value="3">陕西</option>
+        </select><br>
+    文本域：<textarea rows="5" cols="20"></textarea><br>
+    <input type="submit" name="提交" value="提交">
+
+</form>
+</body>
+</html>

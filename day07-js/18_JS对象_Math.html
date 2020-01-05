@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math对象</title>
+    <script>
+        /*
+        Math    数学对象
+
+        1. 创建
+            不用创建Math对象，直接就可以使用：Math.方法名()
+
+        2. 方法
+            random()    返回0~1之间的随机小数 包含0.0不包含1.0
+            ceil()  取大于当前数字的最小整数
+            floor() 取小于当前数字的最小整数
+            round() 对当前数字四舍五入
+
+        3. 属性
+            PI  打印圆周率
+
+         */
+
+
+        // PI  打印圆周率
+        document.write(Math.PI + "<br>");   // 3.141592653589793
+
+
+        // random()    返回0~1之间的随机小数 包含0.0不包含1.0
+        document.write(Math.random() + "<br>"); // 0.09524580522254023
+
+
+        // ceil()  取大于当前数字的最小整数     // 注意：在java中，ceil()返回的是double值，而不是整数
+        document.write(Math.ceil(4.12) + "<br>");   // 5
+
+
+        // floor()  取小于当前数字的最小整数        // 注意：在java中，floor()返回的是double值，而不是整数
+        document.write(Math.floor(4.12) + "<br>");   // 4
+
+
+        // round() 对当前数字四舍五入
+        document.write(Math.round(4.12) + "<br>");  // 4
+        document.write(Math.round(4.67) + "<br>");  // 5
+
+
+        // 练习：取1~100之间的随机整数，要求包含1包含100
+        var num = Math.floor(Math.random() * 100) + 1;
+        document.write(num + "<br>");
+        /*
+        语句解析：
+        Math.random()                           取0~1之间的随机小数，包含0.0不包含1.0，最终取值范围：0.0到0.9
+        Math.random() * 100                     取0~100之间的随机小数，包含0.0不包含100.0，最终取值范围：0.0到99.9
+        Math.floor(Math.random() * 100)         对0~100之间的随机小数向下取整，包含0不包含100，最终取值范围：0到99
+        (Math.floor(Math.random() * 100) + 1    对0~100之间的随机小数向下取整后再加1，包含1包含100，最终取值范围：1到100
+         */
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js变量</title>
+    <script>
+        /*var a = "abc";
+        alert(a);
+        a = 123;
+        alert(a);*/
+
+        /*
+        5种原始数据类型
+         */
+        // number类型变量
+        var num1 = 1;
+        var num2 = 1.2;
+        var num3 = NaN;
+        document.write(num1 + "---" + typeof(num1) +"<br>");    // 1---number
+        document.write(num2 + "---" + typeof(num2) +"<br>");    // 1.2---number
+        document.write(num3 + "---" + typeof(num3) +"<br>");    // NaN---number
+
+        // string类型变量
+        var str1 = "abc";
+        var str2 = 'efg';
+        document.write(str1 + "---" + typeof(str1) +"<br>");    // abc---string
+        document.write(str2 + "---" + typeof(str2) +"<br>");    // efg---string
+
+        // boolean类型变量
+        var flag = true;
+        document.write(flag + "---" + typeof(flag) +"<br>");    // true---boolean
+
+        // null类型变量
+        var obj = null;
+        document.write(obj + "---" + typeof(obj) +"<br>");  // null---object
+        /*
+        您也许会问，为什么 typeof 运算符对于 null 值会返回 "Object"。
+        这实际上是 JavaScript 最初实现中的一个错误，然后被 ECMAScript 沿用了。
+        现在，null 被认为是对象的占位符，从而解释了这一矛盾，但从技术上来说，它仍然是原始值。
+         */
+
+        // undefined类型变量
+        var undef1 = undefined;
+        var undef2 ;
+        document.write(undef1 + "---" + typeof(undef1) +"<br>");    // undefined---undefined
+        document.write(undef2 + "---" + typeof(undef2) +"<br>");    // undefined---undefined
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

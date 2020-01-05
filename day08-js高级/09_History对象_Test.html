@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History对象_Test</title>
+</head>
+<body>
+    <input type="button" value="后退" id="bakBtn">
+
+
+<script>
+    // back()      后退到上一个URL对应的页面
+    var bakBtn = document.getElementById("bakBtn");
+    bakBtn.onclick = function () {
+        // history.back();
+        history.go(-1); // go(n)       如果n为正数：前进到第n个URL对应的页面；如果n为负数：后退到第n个URL对应的页面；
+    };
+
+</script>
+</body>
+</html>

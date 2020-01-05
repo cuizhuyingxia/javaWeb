@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>常见事件</title>
+    <script>
+        // 加载完成
+        window.onload = function () {
+            // 失去焦点
+            /*document.getElementById("username").onblur = function () {
+                alert("失去焦点了");
+            };*/
+            // 鼠标移动到某元素上
+            /*document.getElementById("username").onmouseover = function () {
+                alert("鼠标在当前元素上");
+            };*/
+            // 鼠标被按下
+            /*document.getElementById("username").onmousedown = function (event) {
+                // 哪个鼠标按钮被按下（左键 中间键 右键）
+                alert(event.button);
+            };*/
+            // 键盘被按下
+            /*document.getElementById("username").onkeydown = function (event) {
+                // 哪个键盘按钮被按下
+                //alert(event.keyCode);
+                if (event.keyCode == 13) {  // 如果回车键被按下
+                    alert("提交表单");
+                }
+            };*/
+            /*document.getElementById("username").onchange = function (event) {
+                alert("改变了");
+            };
+
+            document.getElementById("city").onchange = function (event) {
+                alert("改变了");
+            };*/
+
+            /*document.getElementById("form").onsubmit = function () {
+                // 进行校验
+
+                // 返回结果，true 提交     false 阻止提交
+                return false;
+                //return true;
+            }*/
+
+
+        };
+
+
+        function checkForm(){
+            return true;   // 返回false阻止提交
+        }
+    </script>
+</head>
+<body>
+
+<form action="#" id="form" onclick="return  checkForm();">  <!-- 这里如果只写checkForm();的话，那么直接返回的就是false，而我们需要把false返回给调用者，所以需要加上return -->
+    <input name="username" id="username">
+
+    <select id="city">
+        <option>--请选择--</option>
+        <option>北京</option>
+        <option>上海</option>
+        <option>西安</option>
+    </select>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

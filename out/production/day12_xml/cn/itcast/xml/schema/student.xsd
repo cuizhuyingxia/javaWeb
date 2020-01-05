@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<!--固定写法-->
+<xsd:schema xmlns="http://www.itcast.cn/xml"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://www.itcast.cn/xml" elementFormDefault="qualified">
+
+    <!--根元素students，类型为自定义类型studentsType-->
+    <xsd:element name="students" type="studentsType"/>
+    <!--自定义类型studentsType（复杂）-->
+    <xsd:complexType name="studentsType">
+        <xsd:sequence>  <!--按顺序出现-->
+            <!--元素student类型为自定义类型studentType-->
+            <xsd:element name="student" type="studentType" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <!--自定义类型studentType（复杂）-->
+    <xsd:complexType name="studentType">
+        <xsd:sequence>  <!--按顺序出现-->
+            <xsd:element name="name" type="xsd:string"/>    <!--元素name类型为字符串类型-->
+            <xsd:element name="age" type="ageType" />       <!--元素age类型为自定义类型ageType-->
+            <xsd:element name="sex" type="sexType" />       <!--元素sex类型为自定义类型sexType-->
+        </xsd:sequence>
+        <xsd:attribute name="number" type="numberType" use="required"/> <!--元素student的属性number的值的类型为自定义类型numberType，而且是必填项-->
+    </xsd:complexType>
+    <!--自定义类型ageType（简单）-->
+    <xsd:simpleType name="ageType">
+        <xsd:restriction base="xsd:integer">    <!--基本类型为integer-->
+            <xsd:minInclusive value="0"/>       <!--最小值为0-->
+            <xsd:maxInclusive value="256"/>     <!--最大值为256-->
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!--自定义类型sexType（简单）-->
+    <xsd:simpleType name="sexType">
+        <xsd:restriction base="xsd:string">     <!--基本类型为string-->
+            <xsd:enumeration value="male"/>     <!--值为male-->
+            <xsd:enumeration value="female"/>   <!--或female-->
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!--自定义类型numberType（简单）-->
+    <xsd:simpleType name="numberType">
+        <xsd:restriction base="xsd:string">     <!--基本类型为string-->
+            <xsd:pattern value="heima_\d{4}"/>  <!--值的正则表达式为：heima_后面加上四位数字-->
+        </xsd:restriction>
+    </xsd:simpleType>
+</xsd:schema> 

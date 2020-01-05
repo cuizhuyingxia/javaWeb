@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例_电灯开关</title>
+</head>
+<body>
+    <img id="light" src="./img/off.gif" alt="">
+
+
+<script>
+    // 获取元素对象
+    var light = document.getElementById("light");
+    // 设置flag，初始值为false，代表灯是灭的
+    var flag = false;
+
+    // 绑定事件
+    light.onclick = function () {
+        if (flag) { // 如果灯是亮的，则关灯，并修改flag为true
+            light.src = "./img/off.gif";
+            flag = false;
+        } else {    // 如果灯是灭的，则开灯，并修改flag为false
+            light.src = "./img/on.gif";
+            flag = true;
+        }
+    }
+</script>
+</body>
+</html>

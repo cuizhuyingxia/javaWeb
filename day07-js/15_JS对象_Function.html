@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function对象</title>
+    <script>
+        /*
+        Function    方法对象
+
+        1. 创建
+            (1) var fun = new Function(形参列表,方法体);
+            (2) function 方法名称(形参列表) {
+                    方法体
+                }
+            (3) var fun = function(形参列表) {
+                    方法体
+                };
+
+        2. 方法
+
+        3. 属性
+            length 代表形参的个数
+
+        4. 特点
+            1. 定义方法时，形参的类型可以不用写，返回值类型也可以不用写
+            2. 方法是一个对象，后创建的同名方法，会覆盖掉先创建的同名方法
+            3. 在JS中，方法的调用只与方法的名称有关，和参数列表无关
+            4. 调用方法时可以传入任意多个实参
+            5. 在方法声明中有一个隐藏的内置对象（数组）arguments，用来存储所有的实参
+
+        5. 调用
+            方法名称(实际参数)
+            优先级问题：
+                # 当我们使用了第二种格式创建了方法后，如果之前有使用其它两种格式创建的同名方法，那么使用第二种格式创建的同名方法将不会生效
+                @ 如果出现同名的方法，那么后创建的同名方法，会覆盖掉先创建的同名方法
+
+         */
+
+
+        // 优先级问题
+        /*var fun = new Function("a", "b", "c", "alert(a)");
+        fun(3); // 3
+
+        function fun(a, b) {
+            alert(a + b);
+        }
+        fun(3, 4);  // 3    // #因为之前有使用其它两种格式创建的同名方法，所以使用第二种格式创建的同名方法将不会生效
+
+        var fun = function(a, b) {
+            alert(a - b);
+        };
+        fun(3, 4);  // -1   // @后创建的同名方法，会覆盖掉先创建的同名方法*/
+
+
+        /*var fun = new Function("a", "b", "c", "alert(a)");
+        fun(3); // 3
+
+        var fun = function(a, b) {
+            alert(a - b);
+        };
+        fun(3, 4);  // -1   // @后创建的同名方法，会覆盖掉先创建的同名方法
+
+        function fun(a, b) {
+            alert(a + b);
+        }
+        fun(3, 4);  // -1    // #因为之前有使用其它两种格式创建的同名方法，所以使用第二种格式创建的同名方法将不会生效*/
+
+
+        /*function fun(a, b) {
+            alert(a + b);
+        }
+        fun(3, 4);  // 7
+
+        var fun = new Function("a", "b", "c", "alert(a)");
+        fun(3); // 3    // @后创建的同名方法，会覆盖掉先创建的同名方法
+
+        var fun = function(a, b) {
+            alert(a - b);
+        };
+        fun(3, 4);  // -1   // @后创建的同名方法，会覆盖掉先创建的同名方法*/
+
+
+
+        /*// length 代表形参的个数
+        function fun(a, b) {
+            alert(a + b);
+        }
+        fun(3, 4);
+        document.write(fun.length + "<br>"); // 2*/
+
+
+
+        /*// 返回值类型也可以不用写
+        function fun(a, b) {
+            return a + b;
+        }
+        var sum = fun(3, 4);
+        alert(sum);*/
+
+
+
+        /*// 调用方法时可以传入任意多个实参
+        function fun(a, b) {
+            alert(a);   // 3
+            alert(b);   // undefined
+            alert(a + b);   // NaN      // 3 + undefined = NaN
+        }
+        fun(3); // 如果没有传递对应的实参，那么实参的值为undefined
+
+
+        function add(a, b) {
+            var sum = 0;
+            alert(a + b);   // 7
+            alert(arguments.length);    // 3
+            alert(arguments[0]);    // 3
+            alert(arguments[1]);    // 4
+            alert(arguments[2]);    // 5
+            for (var i = 0; i< arguments.length; i ++){ // 循环取出每个实参的值
+                sum += arguments[i];
+            }
+            alert(sum); // 12
+        }
+        add(3, 4, 5);   // 也可以传递多余的实参，所有的实参都会被保存在内置对象arguments数组中*/
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

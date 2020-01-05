@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function对象</title>
+    <script>
+        /*
+        Function    方法对象
+
+        1. 创建（3种格式）
+            (1) var 方法名称 = new Function(形参列表,方法体);
+
+            (2) function 方法名称(形参列表) {
+                    方法体
+                }
+
+            (3) var 方法名称 = function(形参列表) {
+                    方法体
+                };
+
+        2. 调用
+            方法名称(实际参数)
+            优先级问题：
+                # 当我们使用了第二种格式创建了方法后，如果之前有使用其它两种格式创建的同名方法，那么使用第二种格式创建的同名方法将不会生效
+                @ 如果出现同名的方法，那么后创建的同名方法，会覆盖掉先创建的同名方法
+
+         */
+
+
+        /*var fun = new Function("a", "b", "c", "alert(a)");
+        fun(3); // 3
+
+        function fun(a, b) {
+            alert(a + b);
+        }
+        fun(3, 4);  // 3    // #因为之前有使用其它两种格式创建的同名方法，所以使用第二种格式创建的同名方法将不会生效
+
+        var fun = function(a, b) {
+            alert(a - b);
+        };
+        fun(3, 4);  // -1   // @后创建的同名方法，会覆盖掉先创建的同名方法*/
+
+
+
+        /*var fun = new Function("a", "b", "c", "alert(a)");
+        fun(3); // 3
+
+        var fun = function(a, b) {
+            alert(a - b);
+        };
+        fun(3, 4);  // -1   // @后创建的同名方法，会覆盖掉先创建的同名方法
+
+        function fun(a, b) {
+            alert(a + b);
+        }
+        fun(3, 4);  // -1    // #因为之前有使用其它两种格式创建的同名方法，所以使用第二种格式创建的同名方法将不会生效*/
+
+
+
+        function fun(a, b) {
+            alert(a + b);
+        }
+        fun(3, 4);  // 7
+
+        var fun = new Function("a", "b", "c", "alert(a)");
+        fun(3); // 3    // @后创建的同名方法，会覆盖掉先创建的同名方法
+
+        var fun = function(a, b) {
+            alert(a - b);
+        };
+        fun(3, 4);  // -1   // @后创建的同名方法，会覆盖掉先创建的同名方法
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

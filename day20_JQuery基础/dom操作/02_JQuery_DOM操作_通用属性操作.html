@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>JQuery_DOM操作_通用属性操作</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<script  src="../js/jquery-3.3.1.min.js"></script>
+	
+	
+	<style type="text/css">
+		 	div,span{
+			    width: 140px;
+			    height: 140px;
+			    margin: 20px;
+			    background: #9999CC;
+			    border: #000 1px solid;
+				float:left;
+			    font-size: 17px;
+			    font-family:Roman;
+			}
+			
+			div.mini{
+			    width: 30px;
+			    height: 30px;
+			    background: #CC66FF;
+			    border: #000 1px solid;
+			    font-size: 12px;
+			    font-family:Roman;
+			}
+			
+			div.visible{
+				display:none;
+			}
+	 </style>
+    
+	<script type="text/javascript">
+	/*
+	JQuery_DOM操作_通用属性操作
+
+		1. attr()			获取或设置元素的属性值（用于操作元素自定义的属性）
+		2. removeAttr()		删除元素的属性（用于操作元素自定义的属性）
+		3. prop()			获取或设置元素的属性值（用于操作元素自带的属性）
+		4. removeProp()		删除元素的属性（用于操作元素自带的属性）	不过这个方法已经被弃用了
+
+	 */
+
+
+	$(function () {
+
+		/*// 1. attr()			获取或设置元素的属性值（用于操作元素自定义的属性）
+		// 获取li元素的自定义属性name的值
+		var name = $("li").attr("name");
+		alert(name);		// beijing
+		// 设置li元素的自定义属性name的值为dabeijing
+		$("#beijing").attr("name", "dabeijing");
+        // 为li元素新增属性describe，值为didu
+		$("#beijing").attr("describe", "didu");*/
+
+
+		/*// 2. removeAttr()		删除元素的属性（用于操作元素自定义的属性）
+		// 删除li元素的自定义属性name
+		$("li").removeAttr("name");*/
+
+
+		/*// 3. prop()			获取或设置元素的属性值（用于操作元素自带的属性）
+		// 获取input元素的自带属性value的值
+		var value = $("#hobby").prop("value");
+		alert(value);		// 学习*/
+
+
+
+
+		/*// 分别使用attr()和prop()获取li元素的自定义属性people的值
+        var people1 = $("li").attr("people");
+        alert(people1);		// 人口密集
+        var people2 = $("li").prop("people");
+        alert(people2);		// undefined
+
+        // 分别使用attr()和prop()获取input元素的自带属性value的值
+        // 获取id为hobby的元素的value属性值
+        var value = $("input").attr("value");
+        alert(value);		// 学习
+        var value = $("input").prop("value");
+        alert(value);		// 学习*/
+        /*
+        结论：
+        	1. attr()即可以获取元素自定义的属性，也可以获取元素自带的属性
+        	2. prop()不能获取元素自定义的属性，只能获取元素自带的属性
+         */
+
+
+
+
+
+        // 特殊属性checked
+
+
+
+        // 在checked属性没有值的情况下，attr获取到的checked属性的值为undefined
+        //alert($("input").attr("checked"));	// undefined
+
+        // attr无法获取到prop设置的checked属性的值
+        /*$("input").prop("checked", true);
+        alert($("input").attr("checked"));		// undefined*/
+        /*$("input").prop("checked", false);
+        alert($("input").attr("checked"));		// undefined*/
+        /*$("input").prop("checked", "checked");
+        alert($("input").attr("checked"));		// undefined*/
+
+		// attr只能获取到attr设置的checked属性的值
+        /*$("input").attr("checked", "true");
+        alert($("input").attr("checked"));		// checked*/
+        /*$("input").attr("checked", false);
+        alert($("input").attr("checked"));		// undefined*/
+        /*$("input").attr("checked", "checked");
+        alert($("input").attr("checked"));		// checked*/
+
+
+
+
+
+
+        // 在checked属性没有值的情况下，prop获取到的checked属性的值为false
+        //alert($("input").prop("checked"));		// false
+
+        // prop可以获取到attr()或prop()设置的checked属性的值
+        /*$("input").attr("checked", true);
+        alert($("input").prop("checked"));		// true*/
+        /*$("input").attr("checked", false);
+        alert($("input").prop("checked"));		// false*/
+        /*$("input").attr("checked", "checked");
+        alert($("input").prop("checked"));		// true*/
+        /*$("input").prop("checked", true);
+        alert($("input").prop("checked"));		// true*/
+        /*$("input").prop("checked", false);
+        alert($("input").prop("checked"));		// false*/
+        /*$("input").prop("checked", "checked");
+        alert($("input").prop("checked"));		// true*/
+
+
+    });
+	</script>
+	</head>
+	<body>
+		 <ul>
+		 	 <li id="beijing" name="beijing" people="人口密集">北京</li>
+		 </ul>
+		 <input type="checkbox" id="hobby" value="学习" />
+	</body>
+	
+	
+   
+</html>
+
+
+

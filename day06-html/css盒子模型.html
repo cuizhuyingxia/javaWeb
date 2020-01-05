@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css盒子模型</title>
+    <style>
+        div {
+            border: 2px solid;
+            width: 100px;
+            height: 50px;
+        }
+
+        .div1 {
+            width: 200px;
+            height: 200px;
+            padding: 50px;    /*距离内边框上下左右各50px*/
+            box-sizing: border-box; /*保证div的大小不会因为padding值的影响而变大*/
+        }
+
+        .div2 {
+            width: 100px;
+            height: 100px;
+            /*margin: 50px;   !*距离外边框上下左右各50px*!*/
+        }
+
+        .div3 {
+            float: left;
+            color: red;
+        }
+
+        .div4 {
+            float: left;
+            color: green;
+        }
+
+        .div5 {
+            float: left;
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+<div class="div1">
+    <div class="div2"></div>
+</div>
+
+<div class="div3"></div>
+<div class="div4"></div>
+<div class="div5"></div>
+</body>
+</html>

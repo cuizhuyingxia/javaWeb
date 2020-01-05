@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date对象</title>
+    <script>
+        /*
+        Date    日期对象
+
+        1. 创建
+            var date = new Date();
+
+        2. 方法
+            toLocaleString()    返回当前Date对象对应的时间（本地字符串格式）
+            getTime()   返回当前Date对象对应的时间距离1970年1月1日0点之间的毫秒值
+
+         */
+
+
+        var date = new Date();
+        document.write(date + "<br>");  // Fri Aug 09 2019 10:28:28 GMT+0800 (中国标准时间)
+
+
+
+        // toLocaleString()    返回当前Date对象对应的时间（本地字符串格式）
+        document.write(date.toLocaleString() + "<br>"); // 2019/8/9 上午10:29:53
+
+
+
+        // getTime()   返回当前Date对象对应的时间距离1970年1月1日0点之间的毫秒值
+        document.write(date.getTime() + "<br>");    // 1565317946709
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

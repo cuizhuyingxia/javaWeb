@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Global对象</title>
+    <script>
+        /*
+        Global  全局对象
+
+        1. 特点
+            Global中封装的方法不需要对象就可以直接调用，调用格式：方法名()
+
+        2. 方法
+            encodeURI() url编码
+            decodeURI() url解码
+            encodeURIComponent()    url编码（可以编码的字符更多）
+            decodeURIComponent()    url解码（可以解码的字符更多）
+            parseInt()  将字符串转换为数字（逐一判断字符串是否是数字，直到判断出不是数字为止，然后返回前边判断过的数字部分）
+            isNaN() 判断一个值是否是NaN
+            eval()  将JavaScript中的字符串，转换为脚本代码并执行
+
+         */
+
+        /*
+        url编码是什么?
+        浏览器中的HTTP协议是不支持中文传输的，如果想传入中文，那么就需要对中文进行url编码
+         */
+
+        /*
+        url解码是什么？
+        因为HTTP协议中的中文都是使用url编码过的，所以要想从HTTP协议中获取中文，就需要进行url解码
+         */
+
+
+        /*
+        url编码规则
+
+            GBK编码   1个汉字占两个字节（1个字节8个二进制位）
+            UTF-8编码 1个汉字占三个字节（1个字节8个二进制位）
+
+            例如：
+                当我在谷歌浏览器百度搜索框中输入汉字：莲花
+                    浏览器地址栏中会出现这样一串字符：wd=莲花
+                        因为谷歌浏览器比较高级，所以可以直接在浏览器上显示中文（应该是谷歌浏览器内部做了转换，直接解码为中文显示）
+
+                而当我在IE浏览器百度搜索框中输入汉字：莲花
+                    浏览器地址栏中会出现这样一串字符：wd=%E8%8E%B2%E8%8A%B1
+                        其中%E8%8E%B2%E8%8A%B1就是对汉字莲花编码后的效果
+                            可以看到这里有6个%号，代表6个字节，也就是说汉字莲花被解码为6个字节
+                                说明当前浏览器中使用的是UTF-8编码：一个汉字占3个字节
+         */
+
+
+
+        /*// encodeURI() url编码
+        var str = "莲花";
+        var encode = encodeURI(str);
+        document.write(encode + "<br>");    // %E8%8E%B2%E8%8A%B1   // 6个%号，代表6个字节，说明当前页面中使用的是UTF-8编码
+
+        // decodeURI() url解码
+        var decode = decodeURI(encode);
+        document.write(decode + "<br>");    // 莲花*/
+
+
+
+        /*// encodeURIComponent()比encodeURI()可以编码的字符更多
+        var str = "http://www.baidu.com/s?wd=莲花";
+
+        var encode1 = encodeURI(str);
+        document.write(encode1 + "<br>");   // http://www.baidu.com/s?wd=%E8%8E%B2%E8%8A%B1
+        var encode2 = encodeURIComponent(str);
+        document.write(encode2 + "<br>");   // http%3A%2F%2Fwww.baidu.com%2Fs%3Fwd%3D%E8%8E%B2%E8%8A%B1
+        // 可以看到encodeURI()只对汉字进行了编码，而encodeURIComponent()不仅对汉字进行了编码，还对网址中的一些其它字符进行了编码
+
+        // decodeURIComponent()比decodeURI()可以解码的字符更多
+        var decode1 = decodeURI(encode2);
+        document.write(decode1 + "<br>");   // http%3A%2F%2Fwww.baidu.com%2Fs%3Fwd%3D莲花
+        var decode2 = decodeURIComponent(encode2);
+        document.write(decode2 + "<br>");   // http://www.baidu.com/s?wd=莲花
+        // 可以看到decodeURI()只对汉字进行了解码，而decodeURIComponent()不仅对汉字进行了解码，还对网址中的一些其它字符进行了解码*/
+
+
+
+        /*// parseInt()  将字符串转换为数字（逐一判断字符串是否是数字，直到判断出不是数字为止，然后返回前边判断过的数字部分）
+        var str1 = "123";
+        var num1 = parseInt(str1);
+        document.write(num1 + "<br>");   // 123
+
+        var str2 = "456abc";
+        var num2 = parseInt(str2);
+        document.write(num2 + "<br>");   // 456
+
+        var str3 = "a456";
+        var num3 = parseInt(str3);
+        document.write(num3 + "<br>");   // NaN // 无法转换为数字的，将返回NaN*/
+
+
+
+        /*// isNaN() 判断一个值是否是NaN
+        var a = NaN;
+        document.write((a == NaN) + "<br>");    // false
+        // 可以看到即使a的值是NaN，在进行a==NaN比较时，依然会返回false
+        // 所以就有了isNaN()方法，来判断一个值是否是NaN
+        document.write(isNaN(a) + "<br>");  // true*/
+
+
+
+        // eval()  将JavaScript中的字符串，转换为脚本代码并执行
+        var str = "document.write('hello')";
+        document.write(str); // document.write('hello')
+        eval(str);  // hello
+        // 如果向eval()中传入的字符串，不是可执行的脚本，那么也不会报错
+        var str2 = "document.wr";
+        eval(str2);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

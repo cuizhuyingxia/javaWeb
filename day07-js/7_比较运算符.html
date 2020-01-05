@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>比较运算符</title>
+    <script>
+        /*
+        比较运算符：
+        比较规则：
+        1. 如果类型相同，直接进行比较
+            对于字符串来说，逐一对每个字符进行比较，如果是字母，那么根据ASCII码大小进行比较
+
+        2. 如果类型不同，则先进行类型转换，再比较
+
+        3. === 全等于运算符，在比较前，会先判断类型是否相同，如果相同，则继续判断值是否相同
+                                    如果类型不同，则直接返回false
+         */
+
+        // 类型相同
+        document.write((3 > 4) + "<br>");   // false
+        document.write(("abc" > "acd") + "<br>");    // false   b的ASCII码是62 c的ASCII码是63
+
+        // 类型不同
+        document.write(("123" == 123) + "<br>");    // true
+
+        // 全等于运算符
+        document.write(("123" === 123) + "<br>");   // false
+    </script>
+</head>
+<body>
+
+</body>
+</html>

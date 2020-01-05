@@ -1,0 +1,6 @@
+<!ELEMENT students (student*) >     <!--根标签students中可以出现0次或无限次子标签student-->
+<!ELEMENT student (name,age,sex)>   <!--student标签中可以按照顺序出现子标签name age sex-->
+<!ELEMENT name (#PCDATA)>   <!--name标签中的值为字符串-->
+<!ELEMENT age (#PCDATA)>    <!--name标签中的值为字符串-->
+<!ELEMENT sex (#PCDATA)>    <!--name标签中的值为字符串-->
+<!ATTLIST student number ID #REQUIRED>  <!--student标签中有一个属性位number，该属性的值必须唯一，而且是必填项-->

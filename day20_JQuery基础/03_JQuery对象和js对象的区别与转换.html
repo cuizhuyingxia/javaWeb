@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery对象和js对象的区别与转换</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <div id="div1">div1...</div>
+    <div id="div2">div2...</div>
+
+<script>
+    /*
+    JQuery对象和js对象的区别：
+        1. JQuery对象在操作时，更加方便
+        2. JQuery对象和js对象的方法是不通用的
+    */
+
+
+    // 1. JQuery对象在操作时，更加方便
+    // 使用js获取标签名称为div的所有元素，然后设置标签体内容为aaa
+    var divs_js = document.getElementsByTagName("div");
+    alert(divs_js); // [object HTMLCollection]  返回值为html元素对象的集合，如果想获取里面的每一个元素对象，则需要进行遍历
+    // 遍历得到每一个元素对象
+    for (var i = 0; i < divs_js.length; i++) {
+        divs_js[i].innerHTML = "aaa";
+    }
+    // 也可以当作数组使用，可以使用length获取长度
+    //alert(divs_js.length);    // 2
+
+    // 使用jq获取标签名称为div的所有元素，然后设置标签体内容为bbb
+    var divs_jq = $("div");
+    alert(divs_jq); // [object Object]  返回值为一个Object对象，可以直接使用里面的每一个元素对象，而不需要进行遍历
+    // 不用遍历，可以直接使用每一个元素对象
+    divs_jq.html("bbb");
+    // 也可以当作数组使用，可以使用length获取长度
+    //alert(divs_jq.length);    // 2
+
+
+    // 2. JQuery对象和js对象的方法是不通用的
+    /*// 使用js对象调用jq对象的方法，不会起作用
+    for (var i = 0; i < divs_js.length; i++) {
+        divs_js[i].html("ccc");
+    }
+    // 使用jq对象调用js对象的方法，也不会起作用
+    divs_jq.innerHTML = "ddd";*/
+
+
+
+    /*
+    JQuery对象和js对象的转换：
+        1. 将js对象转化为jq对象：$(js对象)
+        2. 将jq对象转换为js对象：jq对象[索引]    或   jq对象.get(索引)
+     */
+
+
+    // 1. 将js对象转化为jq对象：$(js对象)
+    for (var i = 0; i < divs_js.length; i++) {
+        $(divs_js[i]).html("eee");
+    }
+
+    // 2. 将jq对象转换为js对象：jq对象[索引]    或   jq对象.get(索引)
+    divs_jq[0].innerHTML = "fff";
+    divs_jq.get(1).innerHTML = "ggg";
+
+</script>
+</body>
+</html>

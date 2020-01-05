@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        使用$.post()方式发送异步请求（请求方式为POST）
+            $.post(url,[data],[callback],[type])                 url是必填项
+            $.post(请求的url路径,请求参数,回调函数,响应结果的类型)
+         */
+        function fun() {
+            $.post("ajaxServlet", {"username":"mumu"}, function (data) {     // 参数data为响应的内容
+                alert(data);
+            }, "text");
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="发送异步请求" onclick="fun();">
+<input>
+</body>
+</html>

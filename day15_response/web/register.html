@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        window.onload = function () {
+            // 1. 获取图片
+            var changeImg = document.getElementById("changeImg");
+            // 2. 绑定单击事件
+            changeImg.onclick = function () {
+                // 修改图片的src属性
+                /*
+                因为浏览器会对图片进行缓存，所以如果我们还是使用/day15/checkCodeServlet请求地址
+                那么浏览器会把缓存中的图片返回给我们，而这不是我们想要的。
+                所以我们需要在请求地址后面加上一个参数，这样浏览器一看是新的请求地址，就会向服务器发起请求，返回新的图片
+
+                还有就是我们设置的这个参数不能重复，如果重复了，浏览器一看请求地址和之前的一样，还是会返回缓存中的图片
+                那么怎样使图片不重复呢？
+                    random随机生成，也会生成重复的数据，所以不可取
+                    我们可以使用当前时间的毫秒值来作为参数，因为时间是不会重复的，光阴一去不复反呐
+                 */
+                var date = new Date().getTime();
+                changeImg.src = "/day15/checkCodeServlet?" + date;  // 修改图片的src属性，并加上一个不会重复的参数
+            };
+
+
+            // 获取a标签
+            var change = document.getElementById("change");
+            // 绑定单击事件
+            change.onclick = function () {
+                var date = new Date().getTime();
+                changeImg.src = "/day15/checkCodeServlet?" + date;
+            };
+
+        }
+    </script>
+</head>
+<body>
+    <img id="changeImg" src="/day15/checkCodeServlet">
+    <a href="#" id="change">看不清换一张</a>
+</body>
+</html>

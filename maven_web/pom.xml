@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>maven_java</artifactId>
+        <groupId>com.itheima</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../maven_java/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>maven_web</artifactId>
+    <packaging>war</packaging>
+
+    <name>maven_web Maven Webapp</name>
+    <!-- FIXME change it to the project's website -->
+    <url>http://www.example.com</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope><!--设置jar包的生命周期为:只在测试时起作用-->
+        </dependency>
+        <dependency>
+            <!--
+            使用maven创建的项目中是没有jar包的，而当我们要创建一个servlet时，就需要导入servlet依赖的jar包，
+            但是并不是真的将jar包粘贴到项目中，而是指定jar包在本地maven仓库的坐标即可。
+            不过这就会引发一个问题：当我们运行程序的时候，maven本身自带了tomcat插件，所以可以直接运行程序，
+            而tomcat插件中也有对应的servlet依赖的jar包，这就会导致，程序在运行的时候，有两套servlet依赖的jar包，就会造成jar包冲突问题，
+            报错：java.lang.ClassCastException: com.itheima.servlet.MyServlet cannot be cast to javax.servlet.Servlet
+            那么怎样解决这个问题呢？
+            在指定servlet依赖的jar包的坐标时，设置jar包的生命周期为:只在编译时起作用，加上下面这行代码即可
+            <scope>provided</scope>
+            这样就不会出现jar包冲突问题了
+            -->
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.5</version>
+            <scope>provided</scope><!--设置jar包的生命周期为:只在编译时起作用-->
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet.jsp</groupId>
+            <artifactId>jsp-api</artifactId>
+            <version>2.0</version>
+            <scope>provided</scope><!--设置jar包的生命周期为:只在编译时起作用-->
+        </dependency>
+    </dependencies>
+
+
+    <!--配置运行插件-->
+    <build>
+        <plugins>
+            <!--配置tomcat-->
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.2</version>
+                <configuration>
+                    <port>8888</port>
+                </configuration>
+            </plugin>
+            <!--配置jdk-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <target>9</target>
+                    <source>9</source>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+        <finalName>maven_web</finalName>
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>3.1.0</version>
+                </plugin>
+                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>3.0.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.8.0</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>2.22.1</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>3.2.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>2.5.2</version>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>2.8.2</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

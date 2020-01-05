@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态表格</title>
+
+    <style>
+        table{
+            border: 1px solid;
+            margin: auto;
+            width: 500px;
+        }
+
+        td,th{
+            text-align: center;
+            border: 1px solid;
+        }
+        div{
+            text-align: center;
+            margin: 50px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div>
+    <input type="text" id="id" placeholder="请输入编号">
+    <input type="text" id="name"  placeholder="请输入姓名">
+    <input type="text" id="gender"  placeholder="请输入性别">
+    <input type="button" value="添加" id="btn_add">
+
+</div>
+
+
+    <table id="table">
+        <caption>学生信息表</caption>
+        <tr>
+            <th>编号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>操作</th>
+        </tr>
+
+        <tr>
+            <td>1</td>
+            <td>令狐冲</td>
+            <td>男</td>
+            <td><a href="javascript:void(0);" onclick="delTr(this);">删除</a></td>
+        </tr>
+
+        <tr>
+            <td>2</td>
+            <td>任我行</td>
+            <td>男</td>
+            <td><a href="javascript:void(0);"  onclick="delTr(this);">删除</a></td>
+        </tr>
+
+        <tr>
+            <td>3</td>
+            <td>岳不群</td>
+            <td>?</td>
+            <td><a href="javascript:void(0);"  onclick="delTr(this);">删除</a></td>
+        </tr>
+
+
+    </table>
+
+
+
+<script>
+    /*
+    添加
+     */
+    /*// 1. 获取添加按钮并绑定单击事件
+    var btn_add = document.getElementById("btn_add");
+    btn_add.onclick = function () {
+
+        // 2. 获取文本内容
+        var id_text = document.getElementById("id").value;
+        var id_name = document.getElementById("name").value;
+        var id_gender = document.getElementById("gender").value;
+
+        // 3. 创建td，然后将文本内容作为文本结点添加到td中
+        var td_id = document.createElement("td");   // 创建td元素对象
+        var id_text_node = document.createTextNode(id_text);    // 创建文本结点
+        td_id.appendChild(id_text_node); // 将文本结点添加到td中
+
+        var td_name = document.createElement("td");   // 创建td元素对象
+        var name_text_node = document.createTextNode(id_name);    // 创建文本结点
+        td_name.appendChild(name_text_node); // 将文本结点添加到td中
+
+        var td_gender = document.createElement("td");   // 创建td元素对象
+        var gender_text_node = document.createTextNode(id_gender);    // 创建文本结点
+        td_gender.appendChild(gender_text_node); // 将文本结点添加到td中
+
+        var td_del = document.createElement("td");
+        var a = document.createElement("a");
+        a.setAttribute("href", "javascript:void(0)");  // javascript:void(0);  注销掉超链接的跳转功能，但仍可以点击
+        a.setAttribute("onclick", "delTr(this)");   // 为删除超链接添加属性onclick，并绑定方法delTr()，然后将超链接对象作为参数传回来
+        a.innerHTML = "删除";
+        td_del.appendChild(a);
+
+        // 4. 创建tr，并将td添加到tr中
+        var tr = document.createElement("tr");
+        tr.appendChild(td_id);
+        tr.appendChild(td_name);
+        tr.appendChild(td_gender);
+        tr.appendChild(td_del);
+
+        // 5. 获取table，并将tr添加到table中
+        var table = document.getElementsByTagName("table")[0];
+        table.appendChild(tr);
+
+
+    };*/
+
+    var btn_add = document.getElementById("btn_add");
+    btn_add.onclick = function () {
+
+        // 2. 获取文本内容
+        var id_text = document.getElementById("id").value;
+        var id_name = document.getElementById("name").value;
+        var id_gender = document.getElementById("gender").value;
+
+        // 3. 直接在table中添加一行
+        var table = document.getElementsByTagName("table")[0];
+        table.innerHTML += "<tr>\n" +
+            "            <td>"+id_text+"</td>\n" +
+            "            <td>"+id_name+"</td>\n" +
+            "            <td>"+id_gender+"</td>\n" +
+            "            <td><a href=\"javascript:void(0);\"  onclick=\"delTr(this);\">删除</a></td>\n" +
+            "        </tr>"
+    }
+
+    /*
+    删除
+     */
+    // 为删除超链接添加属性onclick，并绑定方法delTr()，然后将超链接对象作为参数传回来
+    var delTr = function (obj) {
+        // 通过超链接对象，获取父节点，获取三次，即可获取到table对象（第1次 td   第2次 tr  第3次 table）
+        var table = obj.parentNode.parentNode.parentNode;
+        // 获取超链接对象对应的tr对象
+        var tr = obj.parentNode.parentNode;
+        // 删除tr
+        table.removeChild(tr);
+    };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

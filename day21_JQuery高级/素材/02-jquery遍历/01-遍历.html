@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>遍历JQuery对象</title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+
+    /*
+    首先我们要知道，对于JQuery对象来说，不需要进行遍历，就能够对JQuery对象中的对象进行操作
+
+    而如果想遍历JQuery对象，则有以下几种方式：
+
+        1. for循环    for (var i = 0; i < jq对象.length; i ++)
+            即可以遍历js对象，也可以遍历jq对象，只不过遍历出来的对象都是js对象，
+                可以直接使用js对象的方法，如果想使用jq对象的方法，则需要将遍历出来的对象转换为jq对象
+
+
+        2. each     jq对象.each(回调函数)
+            只能遍历jq对象，而且遍历出来的对象都是js对象，
+                可以直接使用js对象的方法，如果想使用jq对象的方法，则需要将遍历出来的对象转换为jq对象
+
+        3. 全局each   $.each(js对象或jq对象,回调函数)
+            即可以遍历js对象，也可以遍历jq对象，只不过遍历出来的对象都是js对象，
+                可以直接使用js对象的方法，如果想使用jq对象的方法，则需要将遍历出来的对象转换为jq对象
+
+        4. foro     for(变量 of jq对象)     JQuery3.0以后的版本，新增的遍历方法
+            即可以遍历js对象，也可以遍历jq对象，只不过遍历出来的对象都是js对象，
+                可以直接使用js对象的方法，如果想使用jq对象的方法，则需要将遍历出来的对象转换为jq对象
+
+
+     */
+
+    $(function () {
+        // 首先我们要知道，对于JQuery对象来说，不需要进行遍历，就能够对JQuery对象中的对象进行操作
+        // 获取所有li标签的标签体纯文本内容
+        // alert($("#city li").text());                    // 北京上海天津重庆
+
+
+        // jq对象
+        var city_jq = $("#city li");
+        // js对象
+        var city_js = document.getElementsByTagName("li");
+
+
+
+        // 1. for循环    for (var i = 0; i < jq对象.length; i ++)
+        // 即可以遍历js对象，也可以遍历jq对象
+        /*// 遍历jq
+        for (var i = 0; i < city_jq.length; i ++) {
+            // 只不过遍历出来的对象都是js对象
+            //alert(city_jq[i].innerHTML);                // 可以直接使用js对象的方法
+            //alert($(city_jq[i]).text());                // 如果想使用jq对象的方法，则需要将遍历出来的对象转换为jq对象
+        }*/
+
+        /*// 遍历js
+        for (var i = 0; i < city_js.length; i ++) {
+            // 只不过遍历出来的对象都是js对象
+            //alert(city_js[i].innerHTML);                // 可以直接使用js对象的方法
+            //alert($(city_js[i]).text());                // 如果想使用jq对象的方法，则需要将遍历出来的对象转换为jq对象
+        }*/
+
+
+
+
+
+
+        // 2. each     jq对象.each(回调函数)
+        // 只能遍历jq对象
+        /*// 遍历jq
+        city_jq.each(function (index, element) {        // index 索引     element 遍历出来的对象
+            // 而且遍历出来的对象都是js对象
+            //alert(element.innerHTML);                   // 可以直接使用js对象的方法
+            //alert($(element).text());                   // 如果想使用jq对象的方法，则需要将遍历出来的对象转换为jq对象
+            //alert(this.innerHTML);                      // 也可以使用this获取到遍历出来的对象
+        });*/
+
+
+
+
+
+
+        // 3. 全局each   $.each(js对象或jq对象,回调函数)
+        // 即可以遍历js对象，也可以遍历jq对象
+        // 遍历jq
+        /*$.each(city_jq, function (index, element) {
+            // 只不过遍历出来的对象都是js对象
+            //alert(element.innerHTML);                   // 可以直接使用js对象的方法
+            //alert($(element).text());                   // 如果想使用jq对象的方法，则需要将遍历出来的对象转换为jq对象
+            //alert(this.innerHTML);                      // 也可以使用this获取到遍历出来的对象
+        });*/
+
+        /*// 遍历js
+        $.each(city_js, function (index, element) {
+            // 只不过遍历出来的对象都是js对象
+            //alert(element.innerHTML);                   // 可以直接使用js对象的方法
+            //alert($(element).text());                   // 如果想使用jq对象的方法，则需要将遍历出来的对象转换为jq对象
+            //alert(this.innerHTML);                      // 也可以使用this获取到遍历出来的对象
+        });*/
+
+
+
+
+
+
+        // 4. foro     for(变量 of jq对象)              // JQuery3.0以后的版本，新增的遍历方法
+        // 即可以遍历js对象，也可以遍历jq对象
+        /*// 遍历jq
+        for (li of city_jq) {
+            // 只不过遍历出来的对象都是js对象
+            //alert(li.innerHTML);                      // 可以直接使用js对象的方法
+            //alert($(li).text());                      // 如果想使用jq对象的方法，则需要将遍历出来的对象转换为jq对象
+        }*/
+
+        /*// 遍历js
+        for (li of city_js) {
+            // 只不过遍历出来的对象都是js对象
+            //alert(li.innerHTML);                        // 可以直接使用js对象的方法
+            //alert($(li).text());                        // 如果想使用jq对象的方法，则需要将遍历出来的对象转换为jq对象
+        }*/
+
+    });
+    </script>
+</head>
+<body>
+<ul id="city">
+    <li>北京</li>
+    <li>上海</li>
+    <li>天津</li>
+    <li>重庆</li>
+</ul>
+</body>
+</html>

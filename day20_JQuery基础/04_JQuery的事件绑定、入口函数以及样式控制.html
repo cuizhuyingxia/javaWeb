@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery的事件绑定、入口函数以及样式控制</title>
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <script>
+        /*// 入口函数，dom文档加载完成后，执行该函数中的代码
+        window.onload = function () {
+            // 事件绑定
+            // 给按钮绑定单击事件
+            $("#btn").click(function () {
+                alert("hello"); // hello
+            });
+        };
+
+        // 入口函数，dom文档加载完成后，执行该函数中的代码
+        $(function () {
+            // 事件绑定
+            // 给按钮绑定单击事件
+            $("#btn").click(function () {
+                alert("hi");    // hi
+            });
+        });*/
+
+
+        /*
+        入口函数 window.onload = function () 和 $(function () 的区别：
+            1. window.onload = function () 只能定义一次，如果定义多次，那么后面定义的将会覆盖掉前面定义的
+            2. $(function () 可以定义多次
+
+         */
+
+        // 1. window.onload = function () 只能定义一次，如果定义多次，那么后面定义的将会覆盖掉前面定义的
+        /*window.onload = function () {
+            // 事件绑定
+            // 给按钮绑定单击事件
+            $("#btn").click(function () {
+                alert("hello"); // 不会被执行，因为后面定义的会覆盖掉前面定义的
+            });
+        };
+        window.onload = function () {
+            // 事件绑定
+            // 给按钮绑定单击事件
+            $("#btn").click(function () {
+                alert("world"); // world
+            });
+        };*/
+
+
+        // 2. $(function () 可以定义多次
+        /*$(function () {
+            // 事件绑定
+            // 给按钮绑定单击事件
+            $("#btn").click(function () {
+                alert("hello");    // hello
+            });
+        });
+        $(function () {
+            // 事件绑定
+            // 给按钮绑定单击事件
+            $("#btn").click(function () {
+                alert("world");    // world
+            });
+        });*/
+
+
+
+        /*
+        样式控制
+            JQuery中使用css()方法来控制样式
+         */
+        // 入口函数，dom文档加载完成后，执行该函数中的代码
+        $(function () {
+            // 样式控制
+            // 写法一
+            //$("#btn").css("background-color", "red");   // 设置按钮的背景色为红色
+            // 写法二      // background-color
+            $("#btn").css("backgroundColor", "blue");   // 设置按钮的背景色为蓝色
+                        // backgroundColor
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="点我" id="btn">
+
+</body>
+</html>

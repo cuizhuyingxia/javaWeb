@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array对象</title>
+    <script>
+        /*
+        Array   数组对象
+
+        1. 创建（3种格式，还有其它简写格式）
+            (1) var arr = new Array(元素列表)
+            (2) var arr = new Array(默认长度)
+            (3) var arr = [元素列表]
+
+        2. 方法
+            join(参数)  将数组中的元素按照指定分隔符，拼接为字符串
+            push(元素1,元素2,...) 向数组的末尾添加一个或更多元素，并返回新的长度
+
+        3. 属性
+            length  数组的长度
+
+        4. 特点
+            (1) JS中，数组元素的类型是可变的
+            (2) JS中，数组的长度是可变的
+
+         */
+
+
+        /*// 3种格式创建数组
+        var arr1 = new Array(1, 2, 3);
+        var arr2 = new Array(5);
+        var arr3 = [1, 2, 3];
+        document.write(arr1 + "<br>");  // 1,2,3
+        document.write(arr2 + "<br>");  // ,,,,
+        document.write(arr3 + "<br>");  // 1,2,3*/
+
+
+
+        /*// 数组元素类型是可变的
+        var arr = [1, 2, 3];
+        document.write(arr + "<br>");   // 1,2,3
+        arr = [1, "abc", true];
+        document.write(arr + "<br>");   // 1,abc,true*/
+
+
+
+        /*// 数组的长度是可变的
+        var arr = [1, 2, 3];
+        document.write(arr[0] + "<br>");  // 1
+        document.write(arr[1] + "<br>");  // 2
+        document.write(arr[2] + "<br>");  // 3
+        document.write(arr[3] + "<br>");  // undefined  // 当访问没有赋值的索引时，默认值是undefined
+        arr[10] = 10;
+        document.write(arr + "<br>");   // 1,2,3,,,,,,,,10  // 因为我们给索引10赋了值，所以索引10前面没有赋值的索引默认值为undefined*/
+
+
+
+        /*// length 数组的长度
+        var arr = [1, 2, 3, 4, 5, 6];
+        document.write(arr.length + "<br>");    // 6*/
+
+
+
+        /*// join(参数)  将数组中的元素按照指定分隔符，拼接为字符串
+        var arr = [1, 2, 3];
+        document.write(arr.join() + "<br>");    // 1,2,3    // 默认以逗号作为分隔符
+        document.write(arr.join(":") + "<br>"); // 1:2:3*/
+
+
+
+        // push(参数1,参数2,...) 向数组的末尾添加一个或更多元素，并返回新的长度
+        var arr = [1, 2, 3];
+        arr.push(4, 5);
+        arr.push("abc", "efg", false);
+        document.write(arr + "<br>");   // 1,2,3,4,5,abc,efg,false
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

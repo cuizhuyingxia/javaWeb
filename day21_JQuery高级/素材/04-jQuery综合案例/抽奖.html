@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jquery案例之抽奖</title>
+    <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+    <script>
+        /*
+        分析：
+
+            1. 给开始按钮绑定单击事件
+                1.1 定义循环定时器
+                1.2 随机切换小相框的src属性
+                    定义数组，存放图片资源路径
+                    随机生成数组的索引
+
+            2. 给结束按钮绑定单击事件
+                1.1 停止小相框中的定时器
+                1.2 将大相框的src属性设置为和小相框一样
+         */
+
+
+        // 定义数组，存放图片资源路径
+        var imgs = [
+            "../img/man01.jpg",
+            "../img/man02.jpg",
+            "../img/man03.jpg",
+            "../img/man04.jpg",
+            "../img/man05.jpg",
+            "../img/man06.jpg",
+            "../img/man07.jpg"
+        ];
+
+        // 数组的索引
+        var index;
+        // 定时器编号
+        var interval;
+        $(function () {
+            // 页面加载完成后，设置开始按钮为可用，结束按钮为不可用
+            $("#startID").prop("disabled", false);
+            $("#stopID").prop("disabled", true);
+
+            // 1. 给开始按钮绑定单击事件
+            $("#startID").click(function () {
+                // 当开始按钮被点击后，设置开始按钮为不可用，结束按钮为可用
+                $("#startID").prop("disabled", true);
+                $("#stopID").prop("disabled", false);
+
+                // 定义循环定时器，每隔20毫秒执行一次
+                interval = setInterval(function () {
+                    // 随机生成数组的索引，因为只有7张图片，所以索引的范围为：0~6
+                    // Math.random()随机生成0~1之间的小数；Math.random() * 7随机生成0~7之间的小数；Math.floor(Math.random() * 7)对0~7之间的小数向下取整，为整数0到6
+                    index = Math.floor(Math.random() * 7);
+                    // 设置小相框的src属性
+                    $("#img1ID").prop("src", imgs[index]);
+                },20);
+            });
+
+            // 2. 给结束按钮绑定单击事件
+            $("#stopID").click(function () {
+                // 当结束按钮点击后，设置开始按钮为可用，结束按钮为不可用
+                $("#startID").prop("disabled", false);
+                $("#stopID").prop("disabled", true);
+
+                // 停止小相框中的定时器
+                clearInterval(interval);
+                // 将大相框的src属性设置为和小相框一样
+                $("#img2ID").prop("src", imgs[index]);
+                // 优化大相框的显示效果
+                // 先隐藏
+                $("#img2ID").hide();
+                // 然后1秒后显示（带动画效果）
+                $("#img2ID").show("slow");
+
+            });
+        });
+
+    /*
+    注意：现在有一个小bug
+
+    如果用户点击了开始按钮，会触发一个定时器，返回一个定时器编号，
+    而这时用户又点击了开始按钮，就会又触发一个定时器，返回一个定时器编号，
+    注意第二个定时器返回的定时器编号，会覆盖掉第一个定时器返回的定时器编号，
+    这时就算用户点击结束按钮，那么也只能将第二个定时器结束掉，第一个定时器将无法结束，
+    因为第一个定时器的编号被覆盖掉了
+
+    如何解决这个bug?
+    作以下修改：
+        页面加载完成后，设置开始按钮为可用，结束按钮为不可用
+        当开始按钮被点击后，设置开始按钮为不可用，结束按钮为可用
+        当结束按钮点击后，设置开始按钮为可用，结束按钮为不可用
+     */
+    </script>
+</head>
+<body>
+
+<!-- 小像框 -->
+<div style="border-style:dotted;width:160px;height:100px">
+    <img id="img1ID" src="../img/man00.jpg" style="width:160px;height:100px"/>
+</div>
+
+<!-- 大像框 -->
+<div
+        style="border-style:double;width:800px;height:500px;position:absolute;left:500px;top:10px">
+    <img id="img2ID" src="../img/man00.jpg" width="800px" height="500px"/>
+</div>
+
+<!-- 开始按钮 -->
+<input
+        id="startID"
+        type="button"
+        value="点击开始"
+        style="width:150px;height:150px;font-size:22px"
+        onclick="imgStart()">
+
+<!-- 停止按钮 -->
+<input
+        id="stopID"
+        type="button"
+        value="点击停止"
+        style="width:150px;height:150px;font-size:22px"
+        onclick="imgStop()">
+
+
+<script language='javascript' type='text/javascript'>
+    //准备一个一维数组，装用户的像片路径
+    var imgs = [
+        "../img/man00.jpg",
+        "../img/man01.jpg",
+        "../img/man02.jpg",
+        "../img/man03.jpg",
+        "../img/man04.jpg",
+        "../img/man05.jpg",
+        "../img/man06.jpg"
+    ];
+
+</script>
+</body>
+</html>

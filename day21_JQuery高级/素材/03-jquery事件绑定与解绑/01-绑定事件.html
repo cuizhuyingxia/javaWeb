@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>绑定事件</title>
+    <script src="../js/jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+    /*
+    绑定事件：jq对象.事件方法(回调函数)
+
+     */
+    $(function () {
+        /*// 获取name对象，绑定单击事件
+        $("#name").click(function () {
+            alert("我被点击了")
+        });*/
+
+        /*// 绑定鼠标移动到元素上的事件
+        $("#name").mouseover(function () {
+            alert("鼠标来了")
+        });*/
+
+        /*// 绑定鼠标从元素上离开的事件
+        $("#name").mouseout(function () {
+            alert("鼠标走了")
+        });*/
+
+        /*// 链式编程，简化书写
+        $("#name").mouseover(function () {
+            alert("鼠标来了")
+        }).mouseout(function () {
+            alert("鼠标走了")
+        });*/
+
+        // 为元素绑定获取焦点事件，如果没有传入回调函数，那么页面加载后，该元素会自动获取到焦点
+        $("#name").focus();
+        // 同理：如果为表单对象绑定了submit事件，而没有传入回调函数，那么页面加载后，会自动提交表单
+
+    });
+
+    </script>
+</head>
+<body>
+<input id="name" type="text" value="绑定点击事件">
+</body>
+</html>

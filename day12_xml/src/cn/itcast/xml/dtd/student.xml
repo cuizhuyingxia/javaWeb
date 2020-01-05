@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE students SYSTEM "./student.dtd">	<!--引入dtd外部本地约束文档-->
+
+<!--
+引入dtd外部约束文档格式:
+本地		<!DOCTYPE 根标签名 SYSTEM "dtd文件的位置">
+网络		<!DOCTYPE 根标签名 PUBLIC "dtd文件名字" "dtd文件的URL位置">
+
+SYSTEM	表示本地
+PUBLIC	表示网络
+-->
+
+
+
+<!--在内部编写dtd约束文档
+<!DOCTYPE students [
+		<!ELEMENT students (student*) >     &lt;!&ndash;根标签students中可以出现0次或无限次子标签student&ndash;&gt;
+		<!ELEMENT student (name,age,sex)>   &lt;!&ndash;student标签中可以按照顺序出现子标签name age sex&ndash;&gt;
+		<!ELEMENT name (#PCDATA)>   &lt;!&ndash;name标签中的值必须为字符串&ndash;&gt;
+		<!ELEMENT age (#PCDATA)>    &lt;!&ndash;age标签中的值必须为字符串&ndash;&gt;
+		<!ELEMENT sex (#PCDATA)>    &lt;!&ndash;sex标签中的值必须为字符串&ndash;&gt;
+		<!ATTLIST student number ID #REQUIRED>  &lt;!&ndash;student标签中有一个属性位number，该属性的值必须唯一，而且是必填项&ndash;&gt;
+		]>-->
+
+<students>
+	<student number="s1">	<!--number值必须以字母开头-->
+		<name>coco</name>
+		<age>18</age>
+		<sex>male</sex>
+	</student>
+
+	<student number="s2">
+		<name>coco</name>
+		<age>18</age>
+		<sex>male</sex>
+	</student>
+
+</students>

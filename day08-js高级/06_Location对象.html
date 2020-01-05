@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Location对象</title>
+</head>
+<body>
+    <input type="button" value="刷新" id="reloadBtn">
+    <input type="button" value="谷歌" id="newHrefBtn">
+
+
+<script>
+    /*
+    Location    地址栏对象
+
+    1. 获取
+        window.location 或者直接写：location
+
+    2. 方法
+        reload()    重新加载当前页面（刷新）
+
+    3. 属性
+        href    当前页面的地址栏信息
+
+     */
+
+
+    // 重新加载当前页面（刷新）
+    var reloadBtn = document.getElementById("reloadBtn");
+    reloadBtn.onclick = function () {
+        // window.location.reload();
+        location.reload();
+    };
+
+
+    // 获取当前页面的地址栏信息
+    var href = location.href;
+    document.write(href);   // http://localhost:63342/JavaWeb/day08-js%E9%AB%98%E7%BA%A7/06_Location%E5%AF%B9%E8%B1%A1.html?_ijt=t8i2c7cee9pljrep14c0hg9605
+
+
+    // 设置当前页面的地址栏信息
+    var newHrefBtn = document.getElementById("newHrefBtn");
+    newHrefBtn.onclick = function () {
+        // 设置地址栏信息为完整的url路径，会跳转到url路径对应的资源上
+        location.href = "https://www.google.com";
+        // 设置地址栏信息为相对的url路径，会跳转到当前目录下对应的资源上
+        //location.href = "test.html";  // 跳转到当前目录下的test.html页面上
+    };
+
+</script>
+</body>
+</html>

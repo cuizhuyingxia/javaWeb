@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css选择器优先级测试</title>
+    <style>
+
+        /* id选择器，优先级1 */
+        #id1 {
+            color: red; /*红色*/
+        }
+
+        /* 类选择器，优先级2 */
+        .cls1 {
+            color: blue;    /*蓝色*/
+            border: 30px;
+        }
+
+        /* 选择div元素下的所有p元素，优先级3|4 谁在后面，谁的优先级高 */
+        div p {
+            color: darkorchid;  /*紫色*/
+        }
+
+        /* 选择父类是div元素的子类元素p，优先级3|4 谁在后面，谁的优先级高 */
+        div > p {
+            color: cyan;    /*青色*/
+        }
+
+        /* 并集选择器，优先级5|6 谁在后面，谁的优先级高 */
+        p, b {
+            color: yellow;  /*黄色*/
+        }
+
+        /* 元素选择器，优先级5|6 谁在后面，谁的优先级高 */
+        p {
+            color: green;   /*绿色*/
+        }
+
+        /* *号选择器，选择所有的元素，优先级7 */
+        * {
+            color: gray;    /*灰色*/
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <p class="cls1" id="id1">
+        hello
+    </p>
+</div>
+<b>world</b>
+</body>
+</html>
