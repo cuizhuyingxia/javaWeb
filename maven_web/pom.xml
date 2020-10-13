@@ -27,7 +27,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.11</version>
+            <version>4.13.1</version>
             <scope>test</scope><!--设置jar包的生命周期为:只在测试时起作用-->
         </dependency>
         <dependency>
